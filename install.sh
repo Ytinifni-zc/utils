@@ -4,8 +4,16 @@ fun=$1
 prefix="$HOME/local/include"
 folder="utils"
 
+function hel() {
+  echo "$0 all: for Install all functions."
+  echo "$0 tc : for Install function time_cost."
+  echo "$0 sp : for Install function string_split."
+  echo "$0 mf : for Install function mmap_file."
+}
+
 if [ "$#" -eq 0 ]; then
   echo "[Usage]: see $0 --help"
+  hel
   exit
 fi
 
@@ -19,27 +27,35 @@ function create_folder() {
 
 function tc() {
   create_folder
-  cp -f time_cost.hpp "$prefix/$folder"
+  cp -f utils/time_cost.hpp "$prefix/$folder"
 }
 
 function sp() {
   create_folder
-  cp -f split.hpp "$prefix/$folder"
+  cp -f utils/split.hpp "$prefix/$folder"
+}
+
+function mf() {
+  create_folder
+  cp -f utils/map_file.hpp "$prefix/$folder"
 }
 
 function all() {
   create_folder
-  cp -f *.hpp "$prefix/$folder"
+  cp -f utils/*.hpp "$prefix/$folder"
 }
 
 
 if [ $fun = "--help" ]; then
-  echo "$0 all: for Install all functions."
-  echo "$0 tc : for Install function time_cost."
+  hel
+elif [ $fun = "-h" ]; then
+  hel
 elif [ $fun = "all" ]; then
   all
 elif [ $fun = "tc" ]; then
   tc
 elif [ $fun = "sp" ]; then
   sp
+elif [ $fun = "mf" ]; then
+  mf
 fi
