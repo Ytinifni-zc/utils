@@ -10,6 +10,8 @@
 #include <string>
 #include <iterator>
 
+namespace common_utils {
+
 /**
  * Split string by a signle character.
  * @param s The string.
@@ -32,5 +34,7 @@ std::vector<std::string> string_split(std::string s, const char delimiter) {
   }
   return output;
 }
+
+} // namespace common_utils
 
 #endif // UTILS_SPLIT_HPP

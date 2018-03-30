@@ -2,6 +2,7 @@
 #include <utils/split.hpp>
 
 using namespace std;
+using namespace common_utils;
 
 int main(int argc, char const* argv[])
 {

@@ -10,6 +10,8 @@
 #include <iostream>
 #include <cassert>
 
+namespace common_utils {
+
 /**
  * Calculate runtime of a function.
  * @param L lambda expression
@@ -35,5 +37,6 @@ void cost(L lambda, const std::string &unit="ms") {
 
 }
 
+} // namespace common_utils
 
 #endif //UTILS_TIME_COST_HPP

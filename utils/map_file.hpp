@@ -12,6 +12,8 @@
 #include <cstdlib>
 #include <cstring>
 
+namespace common_utils {
+
 void handle_error(const char* msg) {
   perror(msg);
   exit(255);
@@ -53,5 +55,7 @@ void munmap_file(void* addr, size_t length) {
   if (munmap(addr, length) == -1)
     handle_error("munmap");
 }
+
+} // namespace common_utils
 
 #endif // UTILS_MAP_FILE_HPP
