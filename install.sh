@@ -58,4 +58,6 @@ elif [ $fun = "sp" ]; then
   sp
 elif [ $fun = "mf" ]; then
   mf
+else
+  all
 fi

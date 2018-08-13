@@ -19,7 +19,7 @@ namespace common_utils {
  * @param unit computation unit. Must be us, ms or s.
  */
 template<typename L>
-void cost(L lambda, const std::string &unit="ms") {
+double cost(L lambda, const std::string &unit="ms", bool print=true) {
 
   assert(unit == "us" || unit=="ms" || unit=="s");
 
@@ -31,9 +31,11 @@ void cost(L lambda, const std::string &unit="ms") {
   auto den = std::chrono::milliseconds::period::den;
   if (unit == "s") den = std::chrono::microseconds::period::den;
   else if (unit == "us") den = 1;
-  std::cout << "[" << double(duration.count())
-            *std::chrono::microseconds::period::num / den
-        << unit << "]" << std::endl;
+  double ret = double(duration.count())
+            *std::chrono::microseconds::period::num / den;
+  if (print)
+    std::cout << "[" << ret << unit << "]" << std::endl;
+  return ret;
 
 }
 
