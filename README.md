@@ -1,13 +1,16 @@
 # utils
+
 Useful utils in C++ programs, like computing of time cost.
 
 ## Install
+
 `./install.sh all`
 Details in `./install.sh --help` or `./install.sh -h`
 
 ## Usage
 
 ### Time cost
+
 ```
 template<typename L>
 void cost(L lambda, const std::string &unit="ms");
@@ -18,6 +21,7 @@ void cost(L lambda, const std::string &unit="ms");
 ```
 
 ### String Split
+
 ```
 std::vector<std::string> string_split(std::string s, const char delimiter);
   // Split string by a signle character.
@@ -27,8 +31,8 @@ std::vector<std::string> string_split(std::string s, const char delimiter);
 ```
 
 ### Map File
-```
 
+```
 T mmap_file(const char* filename, size_t& length);
   // Load file to memory by mmap.
   @param filename
@@ -39,4 +43,10 @@ void munmap_file(void* addr, size_t length);
   // Free the mmap memory.
   @param addr The mmap memory pointer.
   @param length Length of the chunk.
+```
+
+### Type Name
+
+```
+std::string type_name<decltype(val)>();
 ```
