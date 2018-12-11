@@ -8,7 +8,7 @@
 #include <cstdlib>
 
 template <class T>
-std::string
+inline std::string
 type_name()
 {
     typedef typename std::remove_reference<T>::type TR;

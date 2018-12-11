@@ -14,7 +14,7 @@
 
 namespace common_utils {
 
-void handle_error(const char* msg) {
+inline void handle_error(const char* msg) {
   perror(msg);
   exit(255);
 }
@@ -26,7 +26,7 @@ void handle_error(const char* msg) {
  * @return Pointer of the file in memory.
  */
 template<typename T> 
-T mmap_file(const char* filename, size_t& length) {
+inline T mmap_file(const char* filename, size_t& length) {
   int fd = open(filename, O_RDONLY);
   if (fd == -1) {
     handle_error("open");
@@ -37,7 +37,7 @@ T mmap_file(const char* filename, size_t& length) {
     handle_error("fstat");
   }
   length = st.st_size;
-  
+
   T addr = static_cast<T>(mmap(NULL, length, PROT_READ, MAP_PRIVATE, fd, 0u));
   if (addr == MAP_FAILED) {
     handle_error("mmap");
@@ -51,7 +51,7 @@ T mmap_file(const char* filename, size_t& length) {
  * @param addr The mmap memory pointer.
  * @param length Length of the chunk.
  */
-void munmap_file(void* addr, size_t length) {
+inline void munmap_file(void* addr, size_t length) {
   if (munmap(addr, length) == -1)
     handle_error("munmap");
 }

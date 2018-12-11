@@ -10,6 +10,7 @@ function hel() {
   echo "$0 sp : for Install function string_split."
   echo "$0 mf : for Install function mmap_file."
   echo "$0 tn : for Install function type_name."
+  echo "$0 ms : for Install function k_way_merge."
 }
 
 if [ "$#" -eq 0 ]; then
@@ -46,6 +47,11 @@ function tn() {
   cp -f utils/type_name.hpp "$prefix/$folder"
 }
 
+function ms() {
+  create_folder
+  cp -f utils/k_way_merge.hpp "$prefix/$folder"
+}
+
 function all() {
   create_folder
   cp -f utils/*.hpp "$prefix/$folder"
@@ -65,6 +71,8 @@ elif [ $fun = "sp" ]; then
 elif [ $fun = "mf" ]; then
   mf
 elif [ $fun = "tn" ]; then
+  tn
+elif [ $fun = "ms" ]; then
   tn
 else
   all

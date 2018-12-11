@@ -19,7 +19,7 @@ namespace common_utils {
  * @param unit computation unit. Must be us, ms or s.
  */
 template<typename L>
-double cost(L lambda, const std::string &unit="ms", bool print=true) {
+inline double cost(L lambda, const std::string &unit="ms", bool print=true) {
 
   assert(unit == "us" || unit=="ms" || unit=="s");
 

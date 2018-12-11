@@ -18,7 +18,7 @@ namespace common_utils {
  * @param delimiter Single character delimiter
  * @return splited string.
  */
-std::vector<std::string> string_split(std::string s, const char delimiter) {
+inline std::vector<std::string> string_split(std::string s, const char delimiter) {
   size_t start=0;
   size_t end=s.find_first_of(delimiter);
   std::vector<std::string> output;
