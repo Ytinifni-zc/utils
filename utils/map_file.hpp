@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <cstdio>
 #include <fcntl.h>
+#include <unistd.h>
 #include <cstdlib>
 #include <cstring>
 
@@ -42,6 +43,7 @@ inline T mmap_file(const char* filename, size_t& length) {
   if (addr == MAP_FAILED) {
     handle_error("mmap");
   }
+  close(fd);
 
   return addr;
 }
